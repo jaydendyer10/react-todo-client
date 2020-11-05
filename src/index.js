@@ -22,7 +22,7 @@ class App extends React.Component {
   addTodo = (e) => {
     e.preventDefault();
     console.log("addtodo", this.state.todo);
-    fetch("http://localhost:5000/api/create-todo", {
+    fetch("https://jd-flask-todo-api.herokuapp.com/api/create-todo", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
@@ -40,7 +40,7 @@ class App extends React.Component {
   };
 
   deleteTodo = (id) => {
-    fetch(`http://localhost:5000/api/delete-todo/${id}`, {
+    fetch(`https://jd-flask-todo-api.herokuapp.com/api/delete-todo/${id}`, {
       method: "DELETE",
     }).then(
       this.setState((prevState) => ({
@@ -52,7 +52,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:5000/api/get-all-todos")
+    fetch("https://jd-flask-todo-api.herokuapp.com/api/get-all-todos")
       .then((res) => res.json())
       .then((data) =>
         this.setState({
